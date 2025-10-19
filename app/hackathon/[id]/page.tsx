@@ -23,7 +23,9 @@ type Idea = {
 } | string
 
 export default function HackathonPageClient() {
-  const { id } = useParams()
+  const params = useParams() as Record<string, string>;
+  const id = params?.id ?? '';
+
   const [hackathon, setHackathon] = useState<Hackathon | null>(null)
   const [loading, setLoading] = useState(true)
 
